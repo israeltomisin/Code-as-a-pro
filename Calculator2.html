@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Calculator2.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <section class="calculator">
+        <div class="calc-box">
+            <h2>Login</h2>
+
+            <div class="display">
+                <input type="email" id="email" placeholder="Enter your email">
+                <input type="password" id="password" placeholder="Enter your password">
+                <button onclick="Login()">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        const email = "israel@gmail.com";
+        const password = "23890";
+
+        function Login(){
+            let userEmail = document.getElementById('email').value;
+            let userPassword = document.getElementById('password').value;
+
+            if (userEmail == '' && userPassword == ''){
+                alert('fill all empty field!!')
+            }else{
+                userEmail == email && userPassword == password ? alert('You are welcome') : alert('Who are you');
+            }
+        }
+    </script>
+
+</body>
+</html>

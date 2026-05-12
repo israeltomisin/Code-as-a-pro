@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Registration.css">
+    <title>Registration Form</title>
+</head>
+<body>
+        <div id="registration">
+            <h1>Registration Form</h1>
+            <form action="https://www.google.com">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <button onclick="Register(event)">Register</button>
+            </form>
+
+
+           
+        </div>
+
+            <div id="hidden-details" class="hidden">
+                <div class="registration-flex">
+                    <div class="show-detail">
+
+                        <form>
+                            <label for="username">Username:</label><br>
+                            <input type="text" id="pName" name="username" required><br><br>
+
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="pEmail" name="email" required><br><br>
+
+                            <label for="password">Password:</label><br>
+                            <input type="password" id="pPassword" name="password" required><br><br>
+
+                        </form>
+                    </div>
+                    <div class="show-detail">
+                        <h2>Registration Details</h2>
+                        
+                        <p id="details"></p>
+                        <button onclick="clearDetails(event)">clear</button>
+                    </div>
+                </div>
+            </div>
+
+    <script>
+        function Register(event){
+            
+            event.preventDefault(); 
+
+            let regUsername = document.getElementById('username').value;
+            let regEmail = document.getElementById('email').value;
+            let regPassword = document.getElementById('password').value;
+
+            if (regUsername === '' || regEmail === '' || regPassword === ''){
+                alert('Fill all fields!!');
+                return;
+            } else{
+                alert('Registration successful');
+            }
+            
+            document.getElementById('pName').innerText = regUsername;
+            document.getElementById('pEmail').innerText = regEmail;
+            document.getElementById('pPassword').innerText = regPassword;
+
+            document.getElementById('details').innerText =
+                'Username: ' + regUsername +
+                '\nEmail: ' + regEmail +
+                '\nPassword: ' + regPassword;
+
+            document.getElementById('registration').style.display = 'none';
+            document.getElementById('hidden-details').style.display = 'block';
+        }
+
+        function clearDetails(event){
+           event.preventDefault();
+            document.getElementById('username').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+
+            document.getElementById('hidden-details').style.display = 'none';
+            document.getElementById('registration').style.display = 'block';
+        }
+
+
+         // function Register(){
+        //     let regUsername = document.getElementById('username').value;
+        //     let regEmail = document.getElementById('email').value;
+        //     let regPassword = document.getElementById('password').value;
+
+        //     if (regUsername == '' && regEmail == '' && regPassword == ''){
+        //         alert('fill all empty field!!')
+        //     }else{
+        //         (regUsername != '' && regEmail != '' && regPassword != '') ? alert('Registration successful') : alert('Who are you');
+        //     }
+        // }
+        
+        // document.getElementById('pName').innerText = regUsername;
+        // document.getElementById('pEmail').innerText = regEmail;
+        // document.getElementById('pPassword').innerText = regPassword 
+
+        // document.getElementById('details').innerText = 'regUsername: ' + username + '\nregEmail: ' + email + '\nregPassword: ' + password;
+
+
+        //  document.getElementById('registration').classList.add('hidden');
+        //  document.getElementById('hidden-details').classList.remove('hidden');
+        
+
+        // function clearDetails(){
+        //     document.getElementById('username').innerText = '';
+        //     document.getElementById('email').innerText = '';
+        //     document.getElementById('password').innerText = '';
+
+        //     document.getElementById('hidden-details').classList.add('hidden');
+        //     document.getElementById('registration').classList.remove('hidden');
+        // }
+    </script>
+</body>
+</html>
+

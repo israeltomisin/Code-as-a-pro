@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            background: #212ea0;
+            padding: 1% 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 15px;
+            margin: 1%;
+        }
+    </style>
+</head>
+<body>
+    <h2>While Loop</h2>
+    <input type="number" id="numberInput">
+    <button onclick="startWhileLoop()">Start While Loop</button>
+    <p id="output"></p>
+
+    <script>
+        function startWhileLoop(){
+            let number = document.getElementById('numberInput').value;
+            let output = document.getElementById('output');
+            output.innerHTML = "";
+            if (number >= 30000){
+                alert('Maximum value reached')
+                return
+            }
+            let i = 0;
+            while (i <= number){
+                output.innerHTML + i ;
+                i++;
+                const btn = document.createElement("button");
+                btn.textContent = "Button " + i;
+                btn.classList.add('button');
+                output.appendChild(btn);
+            }
+            
+        }
+        function subtract(a,b){
+            return a - b;
+        }
+        let result = subtract(10,15)
+        console.log(result)
+        //ARRAYS, OBJECTS, FUNCTIONS, LOOPS
+        const StudentDetails = [
+            {name: 'Israel', age: 26, address: "1 King Road"},
+            {name: 'Beloved', age: 24, address: "2 King Road"},
+            {name: 'Annie', age: 21, address: "3 King Road"},
+            {name: 'Grace', age: 14, address: "4 King Road"},
+            {name: 'Precious', age: 20, address: "5 King Road"},
+            {name: 'Mercy', age: 15, address: "6 King Road"},
+            {name: 'Sarah', age: 18, address: "7 King Road"},
+            {name: 'Purity', age: 16, address: "8 King Road"},
+            {name: 'Beauty', age: 17, address: "9 King Road"},
+            {name: 'Jane', age: 19, address: "10 King Road"},
+        ]
+        for (let i = 0; i < StudentDetails.length; i++){
+            const student = StudentDetails[i];
+            console.log(`${student.name} is ${student.age} years old and lives at ${student.address}`);
+        }
+
+    </script>
+</body>
+</html>

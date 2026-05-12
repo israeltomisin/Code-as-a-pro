@@ -21,13 +21,18 @@
 
     <script>
 
+        alert("This user is above 50 years");
+
+        let name = null
+        console.log(typeof name);
+
         let num1 = document.getElementById('num1');
         let num2 = document.getElementById('num2');
         let result = document.getElementById('result');
 
             function calculate() {
-                const number1 = (num1.value);
-                const number2 = (num2.value);
+                const number1 = parseFloat(num1.value);
+                const number2 = parseFloat(num2.value);
     
                 if (isNaN(number1) || isNaN(number2)) {
                     result.value = 'Please enter valid numbers';
@@ -37,14 +42,24 @@
                 const sum = number1 + number2;
                 result.value = sum;
 
-                const difference = number1 - number2;
-                result.value = difference;
+                console.log(result.value < 50)
 
-                const product = number1 * number2;
-                result.value = product;
+                console.log(number1 == number2)
+
+                    if (number1 >= 100 || number2 >= 100){
+                        console.log(result.value = '')
+                    }
+
+                // const difference = number1 - number2;
+                // result.value = difference;
+
+                // const product = number1 * number2;
+                // result.value = product;
 
                 // const quotient = number1 / number2;
                 // result.value = quotient;
+
+                
             }
     </script>
 </body>

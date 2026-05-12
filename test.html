@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let input = prompt('Input your value');
+        // input = Number(input);
+        // switch(input % 2 == 0){
+        //     case true:
+        //         alert("this is an even number");
+        //         break;
+        //     case false:
+        //         alert("this is an odd number");
+        // }
+
+        // let input = prompt('Input your value');
+        // input = Number(input);
+        // if (input % 2 == 0){
+        //     alert('This is an even number')
+        // } else if(input % 2 == 1){
+        //     alert('This is an odd number')
+        // }
+
+        // FUNCTIONS
+
+        const subtract = (sParam1, sParam2, sParam3=0) => {
+                const sub = sParam1 - sParam2 - sParam3;
+                return sub;
+        }
+
+        function greet(param1, param2, param3=0){
+                const sum = param1 + param2 + param3;
+                const sub = subtract(param1, param2, param3);
+                return `Sum: ${sum}, Sub: ${sub}`;
+        }
+
+
+        const greetings = greet(1,2,3);
+        const greetings2 = greet(12,200);
+
+        const subtraction = 2000 - subtract(20, 18, 1);
+        console.log(subtraction);
+        
+        console.log(greetings);
+        console.log(greetings2);
+
+        // CLASSWORK
+        function Even(param1){
+            const divisible = param1 % 2;
+            return divisible;
+        }
+        function Odd(param1){
+            const divisible = param1 % 1;
+            return divisible;
+        }
+
+        function isEvenOdd(param){
+            if(param % 2 == 0){
+                return 'even'
+            }else{
+                return 'odd'
+            }
+        }
+
+        const num = 609
+        const test = isEvenOdd(num);
+        test === 'odd'? console.log(`${num} is an odd number`): console.log(`${num} is an even number`)
+
+
+        // ASSIGNMENT
+        function isPrime(param){
+            if (param <= 1)
+            return false;
+        for (let i = 2; i <= Math.sqrt(param); i++){
+            if (param % i === 0){
+                return false
+            }
+        }
+        return true;
+        }
+        const num1 = 9
+        const run = isPrime(num1)
+        run ? console.log('num1 is prime') : console.log('not prime');
+
+
+
+        // ARRAYS
+        const students = [
+            ['James', 'Science', 50],
+            ['Luke', 'Maths', 40],
+            ['Israel', 'English', 20],
+            ['Blessing', 'Lit-in-Eng', 60],
+            ['Isabella', 'Economics', 29],
+            ['Emmanuel', 'Geography', 180],
+            ['Annabel', 'Chemistry', 40],
+            ['Christopher', 'Physics', 205],
+            ['Isaac', 'History', 34],
+            ['Wisdom', 'Computer', 19],
+        ]
+
+        
+        let highest = students[0][2];
+        for(let x=0; x<students.length; x++){
+            const score = students[x][2]
+            if(score >= highest) {highest = score}
+        }
+        console.log(highest);
+
+        
+        
+        let lowest = students[0][2];
+        for (let y = 0; y < students.length; y++){
+            let current = students[y][2];
+            if(current <= lowest){
+                lowest = current;
+            }
+        }
+
+        console.log(lowest)
+        
+
+        // //(2) Find the student with the highest score
+        // const studentLength = students.length
+        // console.log(studentLength)
+        // console.log(students[3][0]) //The student with the highest score is Blessing
+
+        // // (3) Find the student with the lowest 
+        // console.log(students[7][0])
+
+        // // (4) Find the highest score
+        // console.log(students[3][2])
+
+        // // (4) Find the lowest score
+        // console.log(students[7][2])
+
+    </script>
+</body>
+</html>

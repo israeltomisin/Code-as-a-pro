@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            background: #212ea0;
+            padding: 1% 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 15px;
+            margin: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Loops</h2>
+        <input type="Number" placeholder="Enter any desire number of yours" id="number">
+        <button onclick="Submit()" class="button">Submit</button>
+        <div id="container"></div>
+
+        <script>
+            // const StudentDetails = [
+            //     name1 = ['Israel',"125,God's Estate",60],
+            //     name2 = ['Destiny',"145,Golden Estate",70],
+            //     name3 = ['Emmanuel',"143,Real Estate",10],
+            //     name4 = ['Joshua',"155,Camelot Estate",40],
+            //     name5 = ['Clinton',"165,Israel's Estate",60],
+            // ]
+
+            const StudentDetails = [
+                {name: 'Israel', age: 16, address: "1 King Road"},
+                {name: 'Dayo', age: 16, address: "1 King Road"},
+                {name: 'Kazeem', age: 16, address: "1 King Road"},
+                {name: 'Tope', age: 16, address: "1 King Road"},
+                {name: 'Isaac', age: 16, address: "1 King Road"},
+            ]
+
+            "Israel is 16 years old"
+            "Dayo is 25 years old"
+
+            function Submit(){
+                const input = document.getElementById('number').value;
+                const container = document.getElementById('container');
+                container.innerText = "";
+
+                if (input >= 20000){
+                    alert('Maximum limit is 20000');
+                    return
+                }
+
+                
+                for (let i = 1; i <= input; i++){
+                    const btn = document.createElement("button");
+                    btn.textContent = "Button " + i;
+                    btn.classList.add('button');
+                    container.appendChild(btn);
+                }
+
+                const y = 100;
+                const x = 1;
+                while (x <= 100){
+                    console.log(x)
+                    x++;
+                }
+
+                ['eat', 'sleep', 'drink', 60];
+
+                //JAVASCRIPT OBJECTS
+                const myObj = {
+                    name: 'Israel',
+                    age: 99,
+                    height: '6cm',
+                    skin_color: 'black',
+                    hair_color: 'red',
+                    phone: '09086785765',
+                    hobbies: ['dancing', 'playing', 'sleeping'],
+                }
+
+                console.log(myObj.age)
+                console.log(myObj.skin_color);
+
+                console.log(myObj['age']);
+                myObj.age = 100;
+                myObj.address = '123, King Street'
+
+                
+            }
+            
+            
+        </script>
+    </div>
+</body>
+</html>
