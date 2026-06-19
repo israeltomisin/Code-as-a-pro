@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="cole.css">
+    <title>Cole Palmer</title>
+</head>
+<body>
+    <section class="Cole-section">
+        <div class="cole-card">
+            <nav>
+                <div class="logo-text">
+                    <h5>Cole <br> Palmer</h5>
+                    <p>Chelsea FC</p>
+                    <span>Attacking midfielder and Winger</span>
+                </div>
+                <ul>
+                    <li>Partners</li>
+                    <li>collaboration</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </nav>
+
+            <div class="flex-text">
+                <div class="text">
+                    <p>
+                        <i class="fa-solid fa-quote-left" id="quote"></i><br>
+                        Only a few of my dreams have come true; I still have a lot to achieve.
+                    </p>
+                    <span>Cole Palmer</span>
+                </div>
+
+                <div class="num">
+                    <h5>10</h5>
+                </div>
+            </div>
+
+            <div class="card-flex">
+                <div class="card">
+                    <img src="./images/palmer.png" alt="">
+                    <button>
+                        <i class="fa-solid fa-play" id="play" onclick="play()"></i>
+                    </button>
+                </div>
+                <div class="card1">
+                    <div class="flex-txt">
+                        <button>Next Game</button>
+                        <h5>tomorrow 19:00</h5>
+                    </div>
+                    <div class="match-flex">
+                        <div class="team-a">
+                            <img src="./images/chelsea.png" alt=""> <p>Chelsea FC</p>
+                        </div>
+                        <button>VS</button>
+                        <div class="team-b">
+                           <p>Man city FC</p> <img src="./images/mancity.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box-flex">
+                        <div class="league">
+                            <p>premier league</p>
+                        </div>
+                        <div class="box">
+                            <p>final</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="cole-text">COLE PALMER</h1>
+
+            <img src="./images/coldpalmer.png" class="player-img" alt="Cole Palmer">
+
+        </div>
+    </section>
+
+    <section id="backdrop">
+        <div class="main">
+            <div>
+                <iframe style="width:45vw;height:50vh;" src="https://www.youtube.com/embed/3CFm0dj96sI" title="Unstoppable! 🥶 Cole Palmer&#39;s Goals &amp; Assists for Chelsea" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function play() {
+            let play = document.getElementById('play')
+            let backdrop = document.getElementById('backdrop')
+            play.addEventListener('click', () => {
+                backdrop.style.display = 'block'
+            })
+            backdrop.addEventListener('click', () => {
+                backdrop.style.display = 'none'
+            })
+        }
+    </script>
+</body>
+</html>

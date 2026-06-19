@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mowgli">
+        <p>there before</p>
+
+    </div>
+
+    <script>
+        const divContent = `
+        <div class="mowgli2">
+            <div class="mowgli3">
+                <p>Testing</p>
+            </div>
+        </div>
+        `
+        const mainDiv = document.querySelector(".mowgli");
+        mainDiv.innerHTML = mainDiv.innerHTML + divContent;
+    </script>
+    
+</body>
+</html>

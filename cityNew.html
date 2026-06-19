@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City's weather</title>
+    <link rel="stylesheet" href="./cityNew.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="width:100%; height:100;">
+    <section class="hero">
+            <div class="hero-bg">
+                <div class="card-box" style="max-height:500px;">
+                    <h5>Easy~boy</h5>
+                    <div class="card-box-grid">
+                        <div class="card-box-left">
+                            <div class="condition">
+                                <h5></h5>
+                                <!-- <p>Up and grateful</p> -->
+                            </div>
+                            <div class="card-dropdown">
+                                <ul class="nav-links">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Location
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Lagos')">Lagos</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Abuja')">Abuja</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Ibadan')">Ibadan</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Benin City')">Benin City</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Ijebu Ode')">Ijebu Ode</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Jos')">Jos</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Abeokuta')">Abeokuta</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Minna')">Minna</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Sokoto')">Sokoto</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="submit('Dallas')">Dallas</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="card-box-center">
+                            <script
+                                src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js"
+                                type="module">
+                                </script>
+
+                                <dotlottie-wc
+                                id="weather-animation"
+                                style="width: 300px;height: 300px"
+                                autoplay
+                                loop>
+                                </dotlottie-wc>
+                        </div>
+                        <div class="card-box-right">
+                            <h5 id="text"></h5>
+                            <p id="text1"></p>
+                            <p id="text2"></p>
+                            <p id="text3"></p>
+                            <p id="text4"></p>
+                            <p id="text5"></p>
+                            <p id="text6"></p>
+                            <p id="text7"></p>
+                        </div>
+                        
+                    </div>    
+                </div>
+            </div>
+    </section>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+     
+    <script>            
+
+
+        function updateGreeting(localtime) {
+
+            const hour = new Date(localtime).getHours();
+
+            let greeting = "";
+
+            if (hour >= 0 && hour < 12) {
+
+                greeting = "Good Morning 🌤️";
+            }
+
+            else if (hour >= 12 && hour < 18) {
+
+                greeting = "Good Afternoon ☀️";
+            }
+
+            else {
+
+                greeting = "Good Evening 🌙";
+            }
+
+            document.querySelector(".condition h5")
+            .innerHTML = greeting;
+        }
+
+        async function submit(city) {
+
+            try {
+
+                const response = await fetch(
+                `https://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=${city}&aqi=no`
+                );
+
+                if (!response.ok) {
+
+                    throw new Error("City not found");
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
+                console.log(data);
+
+                updateGreeting(data.location.localtime);
+
+                const weatherCondition =
+                data.current.condition.text.toLowerCase();
+
+                const animation =
+                document.querySelector("#weather-animation");
+
+                animation.src =
+                "https://lottie.host/05b31ef3-102f-46b9-8c2f-11b004270bb7/pzsB1TOGD8.lottie";
+
+                if (
+                    weatherCondition.includes("sunny") ||
+                    weatherCondition.includes("clear")
+                ) {
+
+                    animation.src =
+                    "https://lottie.host/247cdb4b-8f94-4947-bd08-0f29a1911bc6/5vd3gpOEaS.lottie";
+                }
+
+                else if (
+                    weatherCondition.includes("rain") ||
+                    weatherCondition.includes("drizzle")
+                ) {
+
+                    animation.src =
+                    "https://lottie.host/ff01ce00-5c64-41d5-8fe0-5cbdaa4f4a76/kpkRxEd1It.lottie";
+                }
+
+                else if (
+                    weatherCondition.includes("cloud") ||
+                    weatherCondition.includes("overcast")
+                ) {
+
+                    animation.src =
+                    "https://lottie.host/05b31ef3-102f-46b9-8c2f-11b004270bb7/pzsB1TOGD8.lottie";
+                }
+
+                else if (
+                    weatherCondition.includes("fog") ||
+                    weatherCondition.includes("mist")
+                ) {
+
+                    animation.src =
+                    "https://lottie.host/05b31ef3-102f-46b9-8c2f-11b004270bb7/pzsB1TOGD8.lottie";
+                }
+
+                document.querySelector("#text").innerHTML =
+                `${data.location.country}`;
+
+                document.querySelector("#text").innerHTML =
+                `${data.current.temp_f}°F`;
+
+                document.querySelector("#text1").innerHTML =
+                `${data.current.temp_c}°C`;
+
+                document.querySelector("#text2").innerHTML =
+                `${data.current.condition.text}`;
+
+                document.querySelector("#text3").innerHTML =
+                `${data.current.wind_dir}`;
+
+                document.querySelector("#text4").innerHTML =
+                `${data.current.humidity}%`;
+
+                document.querySelector("#text5").innerHTML =
+                `${data.current.precip_mm} mm Precipitation`;
+
+                document.querySelector("#text6").innerHTML =
+                `${data.location.localtime}`;
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                document.querySelector("#text7").innerHTML =
+                error.message;
+            }
+        }
+
+    </script>
+</body>
+</html>

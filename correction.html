@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City's weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        
+        body{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg,#65c7f7,#0052d4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner-box{
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.15);
+            backdrop-filter:blur(18px);
+            border-radius: 25px;
+            padding:40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            color:#fff;
+            height: 60vh;
+            width: 60vw;
+            /* display: flex;
+            justify-content: center;
+            align-items: flex-start; */
+        }
+        .card-grid{
+            display: flex;
+            justify-content: center;
+            /* height: 100%; */
+            align-items: center;
+        }
+        .card-left{
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 30vw;
+        }
+        .card-center{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30vw;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            left: -30px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .card-right{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            text-align: left;
+            width: 30vw;
+        }
+        .dropdown-toggle{
+            background:rgba(255,255,255,0.15) !important;
+            border:none !important;
+            padding:14px 24px !important;
+            border-radius:40px !important;
+            color:#fff !important;
+            backdrop-filter:blur(10px);
+        }
+        .dropdown-menu{
+            border:none !important;
+            border-radius:20px !important;
+            overflow:hidden;
+        }
+        .nav-links{
+            color:#fff !important;
+            margin-right: 105px !important;
+            list-style-type: none !important;
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+                body{
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg,#65c7f7,#0052d4);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .inner-box {
+                /* width: 100vw; */
+                height: auto;
+                padding: 20px;
+                min-width: 60vw;
+            }
+            .card-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .nav-links {
+                margin-right: 0 !important;
+                margin-bottom: 10px !important;
+            }
+            .card-left, .card-center, .card-right {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="inner-box">
+        <div class="card-grid">
+            <div class="card-left" id="card_left">
+                <h5 id="easy"></h5>
+                <h5 id="text0"></h5>
+                <div class="condition" id="condition">
+                <h6></h6>
+                <h5></h5>
+            </div>
+            </div>
+            <div class="card-center">
+                <iframe id="myFrame" style="align-items:left"></iframe>
+                 <ul class="nav-links" id="nav-links">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Location
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="submit('Lagos')">Lagos</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Abuja')">Abuja</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Ibadan')">Ibadan</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Benin City')">Benin City</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Ijebu Ode')">Ijebu Ode</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Jos')">Jos</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Abeokuta')">Abeokuta</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Minna')">Minna</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Sokoto')">Sokoto</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Dallas')">Dallas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-right">
+                <h5 id="text"></h5>
+                <p id="text1"></p>
+                <p id="text2"></p>
+                <p id="text3"></p>
+                <p id="text4"></p>
+                <p id="text5"></p>
+                <p id="text6"></p>
+                <p id="text7"></p>
+            </div>
+    </section>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+     <script>            
+
+
+        function updateGreeting(localtime) {
+
+            const hour = new Date(localtime).getHours();
+
+            let greeting = "";
+
+            if (hour >= 0 && hour < 12) {
+
+                greeting = "Good Morning";
+            }
+
+            else if (hour >= 12 && hour < 18) {
+
+                greeting = "Good Afternoon";
+            }
+
+            else {
+
+                greeting = "Good Evening";
+            }
+
+            document.querySelector(".condition h5").innerHTML = greeting;
+        }
+
+        async function submit(city) {
+
+            let navLinks = document.getElementById("nav-links");
+            navLinks.style.display = "none";
+
+            try {
+
+                const response = await fetch(
+                `https://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=${city}&aqi=no`
+                );
+
+                if (!response.ok) {
+
+                    throw new Error("City not found");
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
+                console.log(data);
+
+                updateGreeting(data.location.localtime);
+
+                const weatherCondition =
+                data.current.condition.text.toLowerCase();
+
+                const animation = document.getElementById("myFrame");
+
+                if (weatherCondition.includes("sunny")) {
+                    animation.src = "https://lottie.host/embed/247cdb4b-8f94-4947-bd08-0f29a1911bc6/5vd3gpOEaS.lottie";
+                } else if (weatherCondition.includes("cloud")) {
+                    animation.src = "https://lottie.host/embed/05b31ef3-102f-46b9-8c2f-11b004270bb7/pzsB1TOGD8.lottie";
+                } else if (weatherCondition.includes("rain")) {
+                    animation.src = "https://lottie.host/embed/ff01ce00-5c64-41d5-8fe0-5cbdaa4f4a76/kpkRxEd1It.lottie";
+                } else{
+                    animation.src = ""
+                }
+
+                const nav = `
+                <ul class="nav-links" id="nav-links">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Location
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="submit('Lagos')">Lagos</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Abuja')">Abuja</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Ibadan')">Ibadan</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Benin City')">Benin City</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Ijebu Ode')">Ijebu Ode</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Jos')">Jos</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Abeokuta')">Abeokuta</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Minna')">Minna</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Sokoto')">Sokoto</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="submit('Dallas')">Dallas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                `
+                let condition = document.getElementById("condition")
+                const main = document.querySelector("#condition");
+                main.innerHTML = main.innerHTML + nav;
+                let nav1 = document.getElementById("nav-links")
+                // nav1.style.display = 'none'
+                document.getElementById('easy').innerHTML = 'Easy~Boy'
+                document.querySelector("#text0").innerHTML =
+                `${data.location.name},${data.location.country}`;
+                document.querySelector("#text").innerHTML =
+                `<i class="fa-solid fa-temperature-low"></i>${data.current.temp_f}°F`;
+
+                document.querySelector("#text1").innerHTML =
+                `<i class="fa-solid fa-temperature-low"></i>${data.current.temp_c}°C`;
+
+                document.querySelector("#text2").innerHTML =
+                `<i class="fa-solid fa-cloud"></i> ${data.current.condition.text}`;
+
+                document.querySelector("#text3").innerHTML =
+                `<i class="fa-solid fa-wind"></i> ${data.current.wind_dir}`;
+
+                document.querySelector("#text4").innerHTML =
+                `<i class="fa-solid fa-tint"></i> ${data.current.humidity}%`;
+
+                document.querySelector("#text5").innerHTML =
+                `<i class="fa-solid fa-umbrella"></i> ${data.current.precip_mm} mm Precipitation`;
+
+                document.querySelector("#text6").innerHTML =
+                `<i class="fa-solid fa-clock"></i> ${data.location.localtime}`;
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                document.querySelector("#text7").innerHTML =
+                error.message;
+            }
+        }
+
+    </script>
+</body>
+</html>

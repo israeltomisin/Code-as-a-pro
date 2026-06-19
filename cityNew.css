@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Mona Sans", sans-serif;
+}
+.hero .hero-bg{
+    /* width:100%; */
+    min-height:100vh;
+    background:linear-gradient(135deg,#65c7f7,#0052d4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+.hero .hero-bg .card-box{
+    width:100%;
+    max-width:1200px;
+    min-height:650px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(18px);
+    border-radius:35px;
+    padding:40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+.hero .hero-bg .card-box h5{
+    font-size:18px;
+    font-weight:600;
+    color:#fff;
+}
+.card-box-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items:center;
+    height:100%;
+}
+.card-box-left{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+.condition h5{
+    font-size:5rem !important;
+    line-height:0.9;
+    font-weight:800 !important;
+    color:#fff !important;
+}
+
+.condition p{
+    color:rgba(255,255,255,0.8);
+    margin-top:20px;
+    font-size:1rem;
+}
+.dropdown-toggle{
+    background:rgba(255,255,255,0.15) !important;
+    border:none !important;
+    padding:14px 24px !important;
+    border-radius:40px !important;
+    color:#fff !important;
+    backdrop-filter:blur(10px);
+}
+.dropdown-menu{
+    border:none !important;
+    border-radius:20px !important;
+    overflow:hidden;
+}
+.card-box-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+.card-box-center dotlottie-wc{
+    width:420px !important;
+    height:420px !important;
+    transform:translateY(-10px);
+}
+.card-box-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:12px;
+    color:#fff;
+}
+
+#text{
+    font-size:7rem;
+    font-weight:700;
+    line-height:1;
+}
+#text1,
+#text2,
+#text3,
+#text4,
+#text5{
+    font-size:1rem;
+    color:rgba(255,255,255,0.9);
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+#text img,
+#text1 img,
+#text2 img,
+#text3 img,
+#text4 img,
+#text5 img{
+    width:22px;
+}
+.hero .hero-bg .card-box:hover{
+    transform:translateY(-6px);
+    transition:0.4s ease;
+}
+@media(max-width:992px){
+    .card-box-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+        text-align:center;
+    }
+    .card-box-right{
+        align-items:center;
+    }
+    .condition h5{
+        font-size:4rem !important;
+    }
+    #text{
+        font-size:5rem;
+    }
+    .card-box-center dotlottie-wc{
+        width:300px !important;
+        height:300px !important;
+    }
+}

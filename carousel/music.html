@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Music Dashboard</title>
+
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+<link 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+rel="stylesheet">
+
+</head>
+<style>
+    *{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+
+}
+
+
+
+body{
+
+background:#080b16;
+color:white;
+
+}
+
+
+
+.app{
+
+display:flex;
+height:100vh;
+
+}
+
+
+
+
+/* SIDEBAR */
+
+
+.sidebar{
+
+width:230px;
+background:#111827;
+padding:30px;
+
+}
+
+
+
+.sidebar h2{
+
+margin-bottom:40px;
+
+}
+
+
+
+.sidebar li{
+
+list-style:none;
+padding:15px;
+margin:10px 0;
+color:#aaa;
+cursor:pointer;
+
+}
+
+
+
+.sidebar .active{
+
+background:#2563eb;
+border-radius:10px;
+color:white;
+
+}
+
+
+
+
+
+/* MAIN */
+
+
+main{
+
+flex:1;
+padding:30px;
+overflow:auto;
+
+}
+
+
+
+
+.hero{
+
+height:280px;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+90deg,
+rgba(0,0,0,.8),
+transparent
+),
+
+url("https://picsum.photos/900/500");
+
+background-size:cover;
+
+display:flex;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+
+.hero button{
+
+margin-top:20px;
+
+padding:12px 25px;
+
+border:none;
+
+border-radius:20px;
+
+cursor:pointer;
+
+}
+
+
+
+
+.title{
+
+margin:30px 0 15px;
+
+}
+
+
+
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:#111827;
+
+padding:15px;
+
+border-radius:15px;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+.card img{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+
+
+
+
+.artists{
+
+display:flex;
+
+gap:30px;
+
+}
+
+
+
+.artists img{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+}
+
+
+
+
+
+
+/* MUSIC PLAYER */
+
+
+.player{
+
+position:fixed;
+
+bottom:0;
+
+left:230px;
+
+right:0;
+
+height:70px;
+
+background:#111827;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:30px;
+
+}
+
+
+
+.player i{
+
+margin:0 15px;
+
+font-size:20px;
+
+}
+
+
+.player input{
+
+width:300px;
+
+}
+
+
+
+
+
+
+
+@media(max-width:800px){
+
+
+.sidebar{
+
+display:none;
+
+}
+
+
+.player{
+
+left:0;
+
+}
+
+
+
+.cards{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+}
+</style>
+
+<body>
+
+
+<div class="app">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<h2>
+<i class="fa-solid fa-music"></i>
+Rhythm
+</h2>
+
+
+<ul>
+
+<li class="active">
+<i class="fa-solid fa-house"></i>
+Home
+</li>
+
+
+<li>
+<i class="fa-solid fa-compass"></i>
+Explore
+</li>
+
+
+<li>
+<i class="fa-solid fa-heart"></i>
+Liked Songs
+</li>
+
+
+<li>
+<i class="fa-solid fa-list"></i>
+Playlist
+</li>
+
+
+</ul>
+
+
+</aside>
+
+
+
+
+<!-- MAIN -->
+
+<main>
+
+
+
+<section class="hero">
+
+
+<div class="hero-text">
+
+<p>Featured Album</p>
+
+<h1>
+Flume: Skin
+</h1>
+
+
+<button>
+Play Now
+<i class="fa-solid fa-play"></i>
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<h2 class="title">
+Popular Albums
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<img src="https://picsum.photos/300">
+
+<h3>Future Sounds</h3>
+
+<p>Electronic</p>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/301">
+
+<h3>Night Vibes</h3>
+
+<p>Chill Music</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/302">
+
+<h3>Ocean Waves</h3>
+
+<p>Relax</p>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/303">
+
+<h3>Dream</h3>
+
+<p>Pop</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<h2 class="title">
+Top Artists
+</h2>
+
+
+
+<div class="artists">
+
+
+<div>
+
+<img src="https://picsum.photos/100">
+
+<p>Artist One</p>
+
+</div>
+
+
+<div>
+
+<img src="https://picsum.photos/101">
+
+<p>Artist Two</p>
+
+</div>
+
+
+
+<div>
+
+<img src="https://picsum.photos/102">
+
+<p>Artist Three</p>
+
+</div>
+
+
+</div>
+
+
+
+
+</main>
+
+
+
+
+
+
+<!-- PLAYER -->
+
+<div class="player">
+
+
+<div>
+<i class="fa-solid fa-backward"></i>
+
+<i class="fa-solid fa-play"></i>
+
+<i class="fa-solid fa-forward"></i>
+
+</div>
+
+
+<input type="range">
+
+
+</div>
+
+
+
+</div>
+
+
+<script>
+    const play =
+document.querySelector(".fa-play");
+
+
+let playing = false;
+
+
+play.addEventListener("click",()=>{
+
+
+    playing = !playing;
+
+
+    if(playing){
+
+    play.classList.remove("fa-play");
+
+    play.classList.add("fa-pause");
+
+    }
+
+    else{
+
+    play.classList.remove("fa-pause");
+
+    play.classList.add("fa-play");
+
+    }
+
+
+});
+</script>
+
+
+</body>
+</html>

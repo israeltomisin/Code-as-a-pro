@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abuja Weather Report</title>
+</head>
+<body>
+    <p id="weather"></p>
+
+    <!-- <script>
+        fetch("http://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=Abuja&aqi=no").then(response => response.json()).then((data) => {
+            console.log(data);
+            document.querySelector("#weather").textContent = `Abuja's Weather is: ${data.current.temp_f} degrees feranheit`
+        })
+    </script> -->
+
+    <!-- <script>
+        
+        const getData = async () => {
+            
+            const response = await fetch("http://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=Abuja&aqi=no")
+            
+            const data = await response.json();
+            console.log(data);
+            
+            document.querySelector("#weather").textContent = `Abuja's Weather is: ${data.current.temp_f} degrees feranheit`
+        }
+
+        getData();
+
+    </script> -->
+
+    <script>
+        const getData = async () => {
+            try{
+                const response = await fetch("http://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=Kaduna&aqi=no")
+                const data = await response.json();
+                console.log(data);
+                document.querySelector("#weather").textContent = `Kaduna's Weather is: ${data.current.temp_f} degrees feranheit`
+            }catch(error){
+                document.querySelector("#weather").innerHTML = `An error occured, please try again later.`
+            }
+        }
+        
+
+        getData();
+    </script>
+    
+</body>
+</html>

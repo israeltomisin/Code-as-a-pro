@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City's weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+      <nav>
+          <div class="logo">
+            <h5><img src="./images/logo.png" alt="">Easy~boy</h5>
+          </div>
+          <ul class="nav-links">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" onclick="submit('Lagos')">Lagos</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Abuja')">Abuja</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Ibadan')">Ibadan</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Benin City')">Benin City</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Ijebu Ode')">Ijebu Ode</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Jos')">Jos</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Abeokuta')">Abeokuta</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Minna')">Minna</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Sokoto')">Sokoto</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="submit('Ilorin')">Ilorin</a></li>
+                </ul>
+              </li>
+          </ul>
+      </nav>
+
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-text">
+          <h5>Real-Time Weather Updates Across Nigeria</h5>
+          <div class="card-box">
+            <h4 id="txt"></h4>
+            <p id="text"></p>
+            <p id="text1"></p>
+            <p id="text2"></p>
+            <p id="text3"></p>
+            <p id="text4"></p>
+            <p id="text5"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+     
+    <script>            
+      async function submit(city) {
+
+        try {
+
+            const response = await fetch(
+                `https://api.weatherapi.com/v1/current.json?key=c5295deed48a464ea55161726261905&q=${city}&aqi=no`
+            );
+
+            document.querySelector("#txt").innerHTML =
+                `${city} is below:`;
+            const data = await response.json();
+
+            console.log(data);
+
+            document.querySelector("#text").innerHTML =
+                `<i class="fa-solid fa-temperature-high"></i>
+                ${city}'s Weather temperature is: ${data.current.temp_f}°F`;
+
+            document.querySelector("#text1").innerHTML =
+                `<i class="fa-solid fa-temperature-low"></i>
+                 ${city}'s Weather temperature is: ${data.current.temp_c}°C`;
+
+            document.querySelector("#text2").innerHTML =
+                `<i class="fa-solid fa-cloud"></i> 
+                ${city}'s Weather condition is: ${data.current.condition.text}`;
+
+            document.querySelector("#text3").innerHTML =
+                `<i class="fa-solid fa-wind"></i>
+                ${city}'s Wind direction is: ${data.current.wind_dir}`;
+
+            document.querySelector("#text4").innerHTML =
+                `<i class="fa-solid fa-droplet"></i>
+                ${city}'s Humidity is: ${data.current.humidity}%`;
+                document.querySelector("#text5").innerHTML =
+                `<i class="fa-solid fa-cloud"></i> 
+                ${city}'s chance of rain is: ${data.current.chance_of_rain}`;
+
+        } catch (error) {
+
+            document.querySelector("#text").textContent =
+                `An error occurred, please try again later.`;
+
+            console.log(error);
+        }
+      }
+    </script>
+</body>
+</html>

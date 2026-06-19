@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mona Sans", sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #040404;
+    color: #fff;
+    box-shadow: 0 0 20px rgb(0 0 0 /0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    margin: -15px 0;
+}
+nav .logo h5 img{
+    max-width: 150px;
+    width: 50px;
+}
+nav .logo h5{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+nav .nav-links{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+    color: #fff;
+}
+nav .nav-links li{
+    list-style: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+nav .nav-links li:hover{
+    color: #f5f7f3;
+    transition: 0.5s ease-in-out;
+    /* transform: translateY(-6px); */
+}
+.hero{
+}
+.hero .hero-bg{
+    background: linear-gradient(rgba(0,0,50,0.5)), url(./images/herobg.jpg);
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.hero .hero-bg .hero-text{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    color: #0D0D0D;
+    padding: 20px;
+    max-width: 650px;
+    margin: auto;
+}
+.hero .hero-bg .hero-text h5{
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: #0D0D0D;
+    margin-bottom: 2%;
+    line-height: 1;
+}
+.hero .hero-bg .hero-text .card-box{
+    width: 450px;
+    background: #f5f7f6;
+    padding: 30px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #0d0d0d;
+    text-align: left;
+}
+.hero .hero-bg .hero-text .card-box:hover{
+    transition: 0.5s ease-in-out;
+    transform: translateY(-5px);
+}
+.hero .hero-bg .hero-text .card-box h4{
+    color: #0D0D0D;
+    font-size: 1.5rem;
+    margin-bottom: 2%;
+    font-family: "Mono Sans" sans-serif;
+    font-weight: 650;
+}

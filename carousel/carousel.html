@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Carousel</title>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="hero" id="hero0">
+            <div class="card-flex">
+                <div class="hero-card" id="image1">1</div>
+                <div class="hero-card" id="image2">2</div>
+                <div class="hero-card" id="image3">3</div>
+                <div class="hero-card" id="image4">4</div>
+            </div>
+            <div class="card-flex">
+                <div class="hero-card" id="image5">5</div>
+                <div class="hero-card" id="image6">6</div>
+                <div class="hero-card" id="image7">7</div>
+                <div class="hero-card" id="image8">8</div>
+            </div>
+            <div class="card-flex">
+                <div class="hero-card" id="image9">9</div>
+                <div class="hero-card" id="image10">10</div>
+                <div class="hero-card" id="image11">11</div>
+                <div class="hero-card" id="image12">12</div>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-less-than preview-btn"></i>
+                <i class="fa-solid fa-greater-than after-btn"></i>
+                <!-- Checkmark (v4) -->
+<!-- <i class="fa fa-check"></i> -->
+
+<!-- X Mark (v4) -->
+<!-- <i class="fa fa-times"></i> -->
+
+            </div>
+        </div>
+
+
+        <div class="hero" id="heroo">
+            <div class="card-flex">
+                <div class="hero-card" id="image13">13</div>
+                <div class="hero-card" id="image14">14</div>
+                <div class="hero-card" id="image15">15</div>
+                <div class="hero-card" id="image16">16</div>
+            </div>
+            <div class="card-flex">
+                <div class="hero-card" id="image17">17</div>
+                <div class="hero-card" id="image18">18</div>
+                <div class="hero-card" id="image19">19</div>
+                <div class="hero-card" id="image20">20</div>
+            </div>
+            <div class="card-flex">
+                <div class="hero-card" id="image21">21</div>
+                <div class="hero-card" id="image22">22</div>
+                <div class="hero-card" id="image23">23</div>
+                <div class="hero-card" id="image24">24</div>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-less-than preview-btn"></i>
+                <i class="fa-solid fa-greater-than after-btn"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal" id="modal">
+        <div class="main" id="main"></div>
+    </section>
+
+    <script>
+        const description = [
+            { name: 'Unirii Square, Bucharest, Romania', level: 'The image shows Unirii Square (Piața Unirii), one of the largest and most important public squares in Bucharest, Romania. It is a major city landmark known for its fountains, open spaces, busy streets, and connection to important areas of the city.', picture: 'https://media.istockphoto.com/id/2220083197/photo/unirii-square-in-bucharest-romania.jpg' },
+            { name: 'Premium Stock Image', level: 'A professionally captured image designed for visual projects such as websites, presentations, marketing materials, or creative designs. It features a polished style with high-resolution photography suitable for modern digital content', picture: 'https://plus.unsplash.com/premium_photo-1714051660720-888e8454a021' },
+            { name: 'Urban Landscape Photography', level: 'This Unsplash image showcases a professionally captured scene with a focus on city atmosphere and visual storytelling. It can be used for modern designs, websites, travel content, or creative projects. The photo comes from Unsplash, a platform known for high-quality free-to-use photography.', picture: 'https://images.unsplash.com/photo-1516567727245-ad8c68f3ec93' },
+            { name: 'Football Stadium / Soccer Scene', level: 'This image shows a football (soccer) themed scene, likely featuring a player or match environment. It represents the energy, competition, and excitement of the sport, making it suitable for sports websites, team pages, blogs, or promotional designs.', picture: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68' },
+            { name: 'Nature / Wildlife Photography', level: 'This image features a natural outdoor scene with a focus on wildlife and the beauty of the environment. It captures the peaceful and organic side of nature, making it suitable for travel websites, environmental projects, blogs, or creative designs.', picture: 'https://images.unsplash.com/photo-1523833082115-1e8e294bd14e' },
+            { name: 'Premium Lifestyle Photography', level: 'This image is from Unsplash+, a premium collection of high-quality stock photos. It represents a professionally captured lifestyle-focused visual that can be used for modern websites, marketing designs, presentations, or creative projects.', picture: 'https://plus.unsplash.com/premium_photo-1676657955507-b1f993556e80' },
+            { name: 'Modern Photography / Visual Scene', level: 'This image is from Unsplash, featuring a high-quality modern photograph captured for creative and digital use. It can be used as a visual element for websites, portfolios, blogs, presentations, or design projects.', picture: 'https://images.unsplash.com/photo-1726587912121-ea21fcc57ff8'  },
+            { name: 'Premium Professional Photography', level: 'This image is from Unsplash+, a premium photography collection featuring professionally captured visuals. It is suitable for modern digital projects where a clean, high-quality image is needed.', picture: 'https://plus.unsplash.com/premium_photo-1711051475117-f3a4d3ff6778' },
+            { name: 'Travel / City Photography', level: 'This image from Unsplash captures a visually appealing scene suitable for travel and lifestyle content. It can be used to showcase places, environments, or experiences in websites, blogs, presentations, and creative designs.', picture: 'https://images.unsplash.com/photo-1618410320928-25228d811631' },
+            { name: 'Premium Architecture / Travel Photography', level: 'This image is from Unsplash+, a premium collection of professionally captured photographs. It showcases a high-quality visual suitable for highlighting places, environments, or design concepts.98', picture: 'https://plus.unsplash.com/premium_photo-1661963380682-8fcaf8ca7650' },
+            { name: 'Modern Lifestyle / Creative Photography', level: 'This image from Unsplash features a professionally captured visual with a modern aesthetic. It can be used to add a clean and engaging look to websites, blogs, portfolios, presentations, or creative designs.', picture: 'https://images.unsplash.com/photo-1631006995557-9866a74ee05c' },
+            { name: 'Premium Travel / Lifestyle Photography', level: 'This image is from Unsplash+, a premium collection of high-quality professional photographs. It presents a polished visual suitable for showcasing experiences, places, or lifestyle themes.', picture: 'https://plus.unsplash.com/premium_photo-1730233719882-890f7043eb9e' },
+            { name: 'Premium Nature / Scenic Photography', level: 'This image is from Unsplash+, a premium collection of professionally captured photos. It represents a high-quality scenic visual that can be used to create an attractive and modern look for digital projects.', picture: 'https://plus.unsplash.com/premium_photo-1682097234698-eb9040b2072d' },
+            { name: 'Travel / Landmark Photography', level: 'This image from Unsplash features a high-quality travel-oriented photograph capturing a place or environment. It is suitable for showcasing destinations, culture, or scenery in digital projects.', picture: 'https://images.unsplash.com/photo-1605440190093-b67e90c96235' },
+            { name: 'Wildlife / Animal Photography', level: 'This image from Unsplash captures a natural wildlife scene, highlighting the beauty and character of animals in their environment. It is suitable for nature-related content and visual storytelling.', picture: 'https://images.unsplash.com/photo-1575550959106-5a7defe28b56' },
+            { name: 'Premium Travel / Architecture Photography', level: 'This image is from Unsplash+, a premium collection of professionally captured photographs. It showcases a high-quality scene focused on travel, places, or architectural beauty, making it suitable for visual storytelling.', picture: 'https://plus.unsplash.com/premium_photo-1661964071015-d97428970584' },
+            { name: 'Luxury Car / Automotive Photography', level: 'This image from Unsplash features an automotive-focused scene, highlighting the design, style, and details of a vehicle. It is suitable for showcasing cars, technology, lifestyle, or premium branding.', picture: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888' },
+            { name: 'Architecture / City Photography', level: 'This image from Unsplash features a professionally captured architectural or urban scene, showcasing structures, design, and the atmosphere of a built environment.', picture: 'https://images.unsplash.com/photo-1585589266882-2cb137ba7db6' },
+            { name: 'Modern Lifestyle / Creative Photography', level: 'This image from Unsplash features a high-quality photograph with a modern visual style. It can be used to represent lifestyle, creativity, or contemporary themes in digital projects.', picture: 'https://images.unsplash.com/photo-1648413653819-7c0fd93e8e6a' },
+            { name: 'Nature / Landscape Photography', level: 'This image from Unsplash showcases a natural outdoor scene with a focus on the beauty of the environment. It can be used to create a calm, scenic, and visually appealing feel.98', picture: 'https://images.unsplash.com/photo-1547394765-185e1e68f34e' },
+            { name: 'Modern Travel / Scenic Photography', level: 'This image from Unsplash features a high-quality scenic photograph capturing the atmosphere and details of a place or environment. It is suitable for projects that need a visually engaging and professional look.', picture: 'https://images.unsplash.com/photo-1696710257827-75e2e5954059' },
+            { name: 'Education / Learning Environment Photography', level: 'This image from Unsplash represents an educational or learning-focused scene, showing the atmosphere of studying, classrooms, or knowledge sharing.', picture: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b' },
+            { name: 'Travel / City Exploration Photography', level: 'This image from Unsplash captures a travel or urban exploration scene, showcasing the feeling of discovering places and experiencing new environments.', picture: 'https://images.unsplash.com/photo-1552140498-f448ffb1301f' },
+            { name: 'Modern Architecture / City Photography', level: 'This image from Unsplash features a professionally captured urban or architectural scene, highlighting modern structures and the character of a built environment.', picture: 'https://images.unsplash.com/photo-1695700440328-088bc97b2db7' },
+        ]
+        const main = document.getElementById('main');
+        const modal = document.getElementById('modal')
+        const cards = document.querySelectorAll('.hero-card')
+        cards.forEach((card, i) => {
+            card.addEventListener('click', (e) => {
+                modal.style.display = 'block'
+                main.innerHTML =  `
+                            <div class="text">
+                                <img src="${description[i].picture}"}">
+                                <h2>${description[i].name}</h2>
+                                <p>${description[i].level}</p>
+                            </div>
+                         `;
+            })
+        })
+
+        modal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        const heroo = document.getElementById("heroo");
+        const hero0 = document.getElementById('hero0')
+        const preview = document.getElementById('preview')
+        const after = document.getElementById('after')
+        const previews = document.querySelectorAll('.preview-btn');
+        const afters = document.querySelectorAll('.after-btn');
+
+        afters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                heroo.style.display = 'block';
+                hero0.style.display = 'none';
+            });
+        });
+        previews.forEach(btn => {
+            btn.addEventListener('click', () => {
+                heroo.style.display = 'none';
+                hero0.style.display = 'block';
+            });
+        });
+        
+    </script>
+</body>
+</html>

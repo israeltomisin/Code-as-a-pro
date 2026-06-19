@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mona Sans", sans-serif;
+}
+.Cole-section{
+    background: #bbb8b9;
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Cole-section .cole-card{
+    width: 70vw;
+    min-height: 50vh;
+    background: #fff;
+    padding: 20px;
+    margin: auto;
+    position: relative;
+    overflow-y: scroll;
+}
+.Cole-section .cole-card nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Cole-section .cole-card nav .logo-text{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.Cole-section .cole-card nav .logo-text h5{
+    background: #0c308e;
+    border-radius: 50%;
+    padding: 13px;
+    color: #fff;
+    font-size: 16px;
+}
+.Cole-section .cole-card nav .logo-text p{
+    font-size: 12px;
+}
+.Cole-section .cole-card nav .logo-text span{
+    font-size: 12px;
+    color: #aca8a8;
+    text-transform: capitalize;
+}
+.Cole-section .cole-card nav ul{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.Cole-section .cole-card nav ul li{
+    font-size: 12px;
+    list-style-type: circle;
+    text-transform: capitalize;
+    color: #0c308e;
+}
+.Cole-section .cole-card nav .social-icons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.Cole-section .cole-card nav .social-icons a{
+    color: #0c308e;
+    font-size: 12px;
+    border: 1px solid #0c308e;
+    padding: 5px;
+    border-radius: 20px;
+}
+.Cole-section .cole-card nav .social-icons a:hover{
+    background: #0c308e;
+    color: #fff;
+    transform: translateY(-5px);
+    transition: 0.5s ease-in-out;
+}
+.Cole-section .cole-card .flex-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 5% 0; */
+    margin-top: 10%;
+}
+.Cole-section .cole-card .flex-text .text{
+    max-width: 300px;
+}
+.Cole-section .cole-card .flex-text .text p{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: #5b5b5b;
+    margin-bottom: 2%;
+}
+.Cole-section .cole-card .flex-text .text p #quote{
+    color: #0c308e;
+}
+.Cole-section .cole-card .flex-text .text span{
+    font-size: 12px;
+    color: #aca8a8;
+    text-transform: capitalize;
+}
+.Cole-section .cole-card .flex-text .num h5{
+    font-size: 5rem;
+    font-weight: 600;
+    color: #0c308e;
+}
+.Cole-section .cole-card .cole-text {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 7rem;
+    font-weight: 900;
+    color: #0c308e;
+    z-index: 1;
+    white-space: nowrap;
+    margin-bottom: 180px;
+}
+
+.Cole-section .cole-card .player-img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 92%;
+    z-index: 2;
+}
+.Cole-section .cole-card .card-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30%;
+    bottom: 20px;
+    left: 20px;
+}
+.Cole-section .cole-card .card {
+    max-width: 300px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.Cole-section .cole-card .card img {
+    width: 300px;
+    height: 200px;
+}
+
+.Cole-section .cole-card .card button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: red;
+}
+
+.Cole-section .cole-card .card #play {
+    font-size: 15px;
+    color: #fff;
+}
+.Cole-section .cole-card .card h5{
+    color: #fff;
+    font-size: 18px;
+}
+.Cole-section .cole-card .card1{
+    background-color: #0d0d0d;
+    padding: 20px 15px;
+    z-index: 3;
+    max-width: 300px;
+    width: 300px;
+    height: 200px;
+}
+
+.Cole-section .cole-card .card1 {
+    color: #fff;
+    font-size: 18px;
+}
+.Cole-section .cole-card .flex-txt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8%;
+}
+.Cole-section .cole-card .flex-txt button{
+    padding: 12px;
+    border-radius: 18px;
+    border: none;
+    font-size: 15px;
+    background: #0c308e;
+    color: #fff;
+    font-weight: 600;
+}
+.Cole-section .cole-card .flex-txt h5{
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.Cole-section .cole-card .match-flex{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 8%;
+}
+.Cole-section .cole-card .match-flex .team-a{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.Cole-section .cole-card .match-flex .team-a img{
+    width: 25px;
+}
+.Cole-section .cole-card .match-flex .team-a p{
+    font-size: 12px;
+}
+.Cole-section .cole-card .match-flex .team-b{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.Cole-section .cole-card .match-flex .team-b img{
+    width: 30px;
+}
+.Cole-section .cole-card .match-flex .team-b p{
+    font-size: 12px;
+}
+.Cole-section .cole-card .match-flex button{
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 12px;
+    background: #0c308e;
+    color: #fff;
+    font-weight: 600;
+}
+.Cole-section .cole-card .box-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.Cole-section .cole-card .box-flex .league p{
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.Cole-section .cole-card .box-flex .box p{
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+#backdrop{
+    width: 100%;
+    height: 135%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0; left: 0;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    display: none;
+}
+
+#backdrop .main{
+    background: white;
+    max-width: 45vw;
+    height: 50vh;
+    margin: 20% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0; right: -150px;
+}

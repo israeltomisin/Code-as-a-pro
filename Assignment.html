@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/Assignment.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
+  <!-- <style>
+    .btn{
+        margin-top: 2%;
+    }
+  </style> -->
     <body>
 
         <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -80,6 +85,7 @@
                     </div>
                     
                     <button type="button" class="btn btn-primary" id="btn" onclick="Register()">Register</button>
+                    <button type="button" class="btn btn-primary" id="clear_btn" onclick="Clear()">Clear</button>
                 </form>
 
                 <div class="hidden-form" id="hidden-form">
@@ -96,12 +102,13 @@
                             <input type="password" class="form-control" id="password1" required>
                         </div>
                         <button type="button" class="btn btn-primary" id="btn" onclick="Login()">Login</button>
+                        
                     </form>
                 </div>
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
 
 
         <script>
@@ -124,12 +131,12 @@
                 let Uname = document.getElementById("Uname").value;
                 let Password = document.getElementById("password").value;
                 
-                if (Email.includes("@") && Email.includes(".com")){
-                    alert("Email is valid!!!!!!!!!!!")
-                }
-                else if (!Email.includes("@") || !Email.includes(".com")){
-                    alert("Email is invalid!!!!!!!!!!!")
-                }
+                // if (Email.includes("@") && Email.includes(".com")){
+                //     alert("Email is valid!!!!!!!!!!!")
+                // }
+                // else if (!Email.includes("@") || !Email.includes(".com")){
+                //     alert("Email is invalid!!!!!!!!!!!")
+                // }
 
                 if (Fname == "" || Email == "" || Uname == "" || Password == ""){
                     alert("Fill all fields!!!!!!!!!!!")
@@ -140,49 +147,108 @@
                     savedPassword = Password;
 
                     alert("Registration successful!!!!!!!!!!!")
+                    processForm();
 
+                    // document.querySelector('form').style.display = 'none';
+                    // document.getElementById('hidden-form').style.display = 'block';
+                }
+            }
+
+            
+
+            const processForm =() => {
+                    const email = document.getElementById("Email").value;
+                    const password = document.getElementById("password").value;
+                    const user_name = document.getElementById("Uname").value;
+                    const full_name = document.getElementById("Fname").value;
+
+                    let stored_db = localStorage.getItem("database");
+                    if(!stored_db){
+                        localStorage.setItem("database", '[]');
+                    }
+                    stored_db = JSON.parse(stored_db);
+                    let email_exists = false;
+                    
+                    stored_db.forEach(dataObj => {
+                        if(dataObj['email'] == email){
+                            email_exists = true;
+                        }
+                    })
+
+                    if(email_exists){
+                        alert ("This Email Already Exist")
+                    }else{
+                        const data = {
+                            'email': email,
+                            'password': password,
+                            'user_name': user_name,
+                            'full_name': full_name,
+                        }
+                        stored_db.push(data);
+
+                        stored_db = JSON.stringify(stored_db);
+                        const store = localStorage.setItem("database", stored_db);
+
+                    } 
+
+                    stored_db = JSON.parse(localStorage.getItem("database"));
+
+                    let user_name_exists = false;
+
+                    stored_db.forEach(dataObj => {
+                        if(dataObj['user_name'] == user_name){
+                            user_name_exists = true;
+                        }
+                    })
+
+                    if(user_name_exists){
+                        alert ("This Username Already Exist")
+                    }else{
+                        const data = {
+                            'email': email,
+                            'password': password,
+                            'user_name': user_name,
+                            'full_name': full_name,
+                        }
+
+                        stored_db.push(data);
+
+                        stored_db = JSON.stringify(stored_db);
+                        const store = localStorage.setItem("database", stored_db);
+                    }
+
+                }
+
+                function Clear(){
+                    document.getElementById('clear_btn').addEventListener("click", () => {
+                        localStorage.clear();
+                        console.log("All stored data clear")
+                    })
+                }
+
+                function Login(){
+
+                    const button = document.getElementById("btn");
+                    const color = ["#22252d", "red", "blue", "green", "orange", "purple", "indigo", "teal", "maroon", "navy"];
+                    const randomColor = color[Math.floor(Math.random() * color.length)];
+                    button.style.backgroundColor = randomColor;
+                    button.style.color = "white";
+
+                    // localStorage.setItem("name", "Hi there 👋");
+                    // // localStorage.setItem("message", "Welcome to JavaScript");
+                    // alert("Name: " + localStorage.getItem("name"));
+                    let Email1 = document.getElementById("Email1").value;
+                    let Password1 = document.getElementById("password1").value;
+
+                    if (Email1 == savedEmail && Password1 == savedPassword){
+                        alert("Login successful!!!!!!!!!!!")
+                    }
+                    else{
+                        alert("Invalid email or password!!!!!!!!!!!")
+                    }
                     document.querySelector('form').style.display = 'none';
                     document.getElementById('hidden-form').style.display = 'block';
                 }
-                const processForm =() => {
-                    const Fname = document.getElementById("Fname").value;
-                    const Email = document.getElementById("Email").value;
-                    const Uname = document.getElementById("Uname").value;
-                    const Password = document.getElementById("password").value;
-                    const data = {
-                        Fname: Fname,
-                        Email: Email,
-                        Uname: Uname,
-                        Password: Password
-                    }
-                    const jsonData = JSON.stringify(data);
-                    console.log(jsonData);
-                    localStorage.setItem("formData", jsonData);
-                }
-            }
-            function Login(){
-
-                const button = document.getElementById("btn");
-                const color = ["#22252d", "red", "blue", "green", "orange", "purple", "indigo", "teal", "maroon", "navy"];
-                const randomColor = color[Math.floor(Math.random() * color.length)];
-                button.style.backgroundColor = randomColor;
-                button.style.color = "white";
-
-                // localStorage.setItem("name", "Hi there 👋");
-                // // localStorage.setItem("message", "Welcome to JavaScript");
-                // alert("Name: " + localStorage.getItem("name"));
-                let Email1 = document.getElementById("Email1").value;
-                let Password1 = document.getElementById("password1").value;
-
-                if (Email1 == savedEmail && Password1 == savedPassword){
-                    alert("Login successful!!!!!!!!!!!")
-                }
-                else{
-                    alert("Invalid email or password!!!!!!!!!!!")
-                }
-                document.querySelector('form').style.display = 'none';
-                document.getElementById('hidden-form').style.display = 'block';
-            }
 
         </script>
     </body>
